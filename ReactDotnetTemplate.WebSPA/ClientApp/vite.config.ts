@@ -7,5 +7,8 @@ export default defineConfig({
     server: {
         port: 5067,
         strictPort: true
+    },
+    build: {
+        outDir: '../wwwroot',
     }
 })
