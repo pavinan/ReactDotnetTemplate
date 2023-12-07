@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Default Profile",
+    "Projects": [
+      {
+        "Name": "ReactDotnetTemplate.API\\ReactDotnetTemplate.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Name": "ReactDotnetTemplate.WebSPA\\ReactDotnetTemplate.WebSPA.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Name": "ReactDotnetTemplate.AppGateway\\ReactDotnetTemplate.AppGateway.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
