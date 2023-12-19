@@ -1,7 +1,9 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using ReactDotnetTemplate.Application.Behaviours;
+using ReactDotnetTemplate.Application.Data;
 using ReactDotnetTemplate.Application.Services.Identity;
+using ReactDotnetTemplate.Infrastructure.Data;
 using ReactDotnetTemplate.Infrastructure.Services.Identity;
 using ReactDotnetTemplate.Persistence;
 
@@ -27,6 +29,9 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services.AddValidatorsFromAssembly(typeof(IIdentityService).Assembly);
+
+
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 var app = builder.Build();
 
