@@ -17,5 +17,6 @@ namespace ReactDotnetTemplate.Infrastructure.Data
 
             return result.Entity;
         }
+
     }
 }

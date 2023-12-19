@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,6 +19,10 @@
     <ProjectReference Include="..\ReactDotnetTemplate.Application\ReactDotnetTemplate.Application.csproj" />
     <ProjectReference Include="..\ReactDotnetTemplate.Infrastructer\ReactDotnetTemplate.Infrastructure.csproj" />
     <ProjectReference Include="..\ReactDotnetTemplate.Persistence\ReactDotnetTemplate.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SourceGenerators\" />
   </ItemGroup>
 
 </Project>
