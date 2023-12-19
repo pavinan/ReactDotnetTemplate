@@ -1,11 +1,18 @@
-import { useState } from 'react'
-import { useGetTodosQuery } from '../../services/todoservice';
+import { useGetTodosQuery, Todo } from '../../services/todoservice';
+
+function TodoItem({ todo }: { todo: Todo }) {
+    return (
+        <div>
+            <h3>{todo.title}</h3>
+            <p>{todo.description}</p>
+        </div>
+    )
+}
+
 
 export default function TodoList() {
-    // Using a query hook automatically fetches data and returns query values
-    const { data, error, isLoading } = useGetTodosQuery();
-    // Individual hooks are also accessible under the generated endpoints:
-    // const { data, error, isLoading } = pokemonApi.endpoints.getPokemonByName.useQuery('bulbasaur')
+    
+    const { data, error, isLoading } = useGetTodosQuery();    
 
     return (
         <div className="">
@@ -16,11 +23,7 @@ export default function TodoList() {
             ) : data ? (
                 <>
                     {
-                        data.map(t => (
-                            <div key={t.id}>
-                                <h3>{t.title}</h3>
-                                <p>{t.description}</p>
-                            </div>))
+                        data.map(t => <TodoItem key={t.id} todo={t} />)
                     }
 
                 </>
