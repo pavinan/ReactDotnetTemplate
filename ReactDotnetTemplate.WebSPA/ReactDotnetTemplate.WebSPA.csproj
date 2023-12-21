@@ -12,8 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\components\todos\" />
-    <Folder Include="ClientApp\src\services\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

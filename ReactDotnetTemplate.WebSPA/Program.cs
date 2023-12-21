@@ -1,4 +1,10 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHealthChecks()
+    .AddCheck("self", () => HealthCheckResult.Healthy(), ["live"]);
 
 builder.Services.AddSpaStaticFiles(c => 
 {
@@ -12,13 +18,17 @@ if (builder.Environment.IsDevelopment())
 
 var app = builder.Build();
 
+app.MapHealthChecks("/health");
+
+app.MapHealthChecks("/liveness", new HealthCheckOptions
+{
+    Predicate = r => r.Tags.Contains("live")
+});
+
 app.UseHttpsRedirection();
 
 app.UseFileServer();
-
 app.UseSpaStaticFiles();
-
-
 
 if (app.Environment.IsDevelopment())
 {

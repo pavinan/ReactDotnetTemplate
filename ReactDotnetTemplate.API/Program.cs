@@ -1,5 +1,7 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using ReactDotnetTemplate.Application.Behaviours;
 using ReactDotnetTemplate.Application.Data;
 using ReactDotnetTemplate.Application.Services.Identity;
@@ -13,6 +15,10 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHealthChecks()
+    .AddCheck("self", () => HealthCheckResult.Healthy(), ["live"]);
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -35,6 +41,11 @@ builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 var app = builder.Build();
 
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/liveness", new HealthCheckOptions
+{
+    Predicate = r => r.Tags.Contains("live")
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
