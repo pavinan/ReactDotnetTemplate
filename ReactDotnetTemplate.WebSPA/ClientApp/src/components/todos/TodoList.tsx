@@ -2,9 +2,9 @@ import { useGetTodosQuery, Todo } from '../../services/todoservice';
 
 function TodoItem({ todo }: { todo: Todo }) {
     return (
-        <div className='peer group flex-auto'>
-            <h3 className='mb-2 font-semibold text-slate-900 dark:text-slate-200'>{todo.title}</h3>
-            <p className='prose prose-slate prose-sm text-slate-600 dark:prose-dark'>{todo.description}</p>
+        <div className='relative flex flex-col bg-slate-50 rounded-lg p-6 dark:bg-slate-800 dark:highlight-white/5 my-2 w-[30rem]'>
+            <h3 className='text-base text-slate-900 font-semibold dark:text-slate-300'>{todo.title}</h3>
+            <p className='mt-2 text-slate-700 dark:text-slate-300'>{todo.description}</p>
         </div>
     )
 }
