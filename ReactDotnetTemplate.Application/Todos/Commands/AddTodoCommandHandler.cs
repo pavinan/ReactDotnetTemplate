@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReactDotnetTemplate.Application.Commands
+namespace ReactDotnetTemplate.Application.Todos.Commands
 {
     public class AddTodoCommandHandler(ITodoRepository todoRepository) : IRequestHandler<AddTodoCommand, bool>
     {

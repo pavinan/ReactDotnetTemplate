@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReactDotnetTemplate.Application\ReactDotnetTemplate.Application.csproj" />
-    <ProjectReference Include="..\ReactDotnetTemplate.Infrastructer\ReactDotnetTemplate.Infrastructure.csproj" />
+    <ProjectReference Include="..\ReactDotnetTemplate.Infrastructure\ReactDotnetTemplate.Infrastructure.csproj" />
     <ProjectReference Include="..\ReactDotnetTemplate.Persistence\ReactDotnetTemplate.Persistence.csproj" />
   </ItemGroup>
 

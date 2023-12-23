@@ -10,5 +10,6 @@ namespace ReactDotnetTemplate.Application.Data
     public interface ITodoRepository
     {
         Task<Todo> AddAsync(Todo todo);
+        Task<bool> DeleteAsync(string id);
     }
 }

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotnetTemplate.Models"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotnetTemplate.Persistence", "ReactDotnetTemplate.Persistence\ReactDotnetTemplate.Persistence.csproj", "{26DF504F-FCC1-49DB-A950-ED216F953DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotnetTemplate.Infrastructure", "ReactDotnetTemplate.Infrastructer\ReactDotnetTemplate.Infrastructure.csproj", "{BBA910B2-4A96-4B9F-BFA5-BDE44D293642}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotnetTemplate.Infrastructure", "ReactDotnetTemplate.Infrastructure\ReactDotnetTemplate.Infrastructure.csproj", "{BBA910B2-4A96-4B9F-BFA5-BDE44D293642}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotnetTemplate.Application", "ReactDotnetTemplate.Application\ReactDotnetTemplate.Application.csproj", "{DC95F806-E24B-43B7-9515-82317B56FE61}"
 EndProject

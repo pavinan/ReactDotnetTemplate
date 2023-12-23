@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReactDotnetTemplate.Application.Queries
+namespace ReactDotnetTemplate.Application.Todos.Queries
 {
     internal class GetTodosQueryHandler(AppDbContext appDbContext, ILogger<GetTodosQueryHandler> logger)
         : IRequestHandler<GetTodosQuery, List<TodoDTO>>

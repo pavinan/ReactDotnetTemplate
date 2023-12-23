@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ReactDotnetTemplate.Application.Commands;
-using ReactDotnetTemplate.Application.Queries;
+using ReactDotnetTemplate.Application.Todos.Commands;
+using ReactDotnetTemplate.Application.Todos.Queries;
 
 namespace ReactDotnetTemplate.API.Controllers
 {
@@ -22,6 +22,14 @@ namespace ReactDotnetTemplate.API.Controllers
         public async Task<ActionResult<TodoDTO>> Post(AddTodoCommand command)
         {
             var todo = await mediator.Send(command);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<bool>> Delete(string id)
+        {
+            var todo = await mediator.Send(new DeleteTodoCommand { Id = id });
 
             return NoContent();
         }

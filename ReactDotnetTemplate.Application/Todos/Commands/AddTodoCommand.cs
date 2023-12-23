@@ -5,18 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReactDotnetTemplate.Application.Queries
+namespace ReactDotnetTemplate.Application.Todos.Commands
 {
-    public class GetTodosQuery : IRequest<List<TodoDTO>>
+    public class AddTodoCommand : IRequest<bool>
     {
-    }
-
-
-    public class TodoDTO
-    {
-        public string? Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
     }
-
 }

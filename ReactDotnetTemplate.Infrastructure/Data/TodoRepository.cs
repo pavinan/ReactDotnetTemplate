@@ -18,5 +18,19 @@ namespace ReactDotnetTemplate.Infrastructure.Data
             return result.Entity;
         }
 
+        public async Task<bool> DeleteAsync(string id)
+        {
+            var todo = await dbContext.Todos.FindAsync(id);
+
+            if (todo == null)
+            {
+                return false;
+            }
+
+            dbContext.Todos.Remove(todo);
+
+            return true;
+        }
+
     }
 }
