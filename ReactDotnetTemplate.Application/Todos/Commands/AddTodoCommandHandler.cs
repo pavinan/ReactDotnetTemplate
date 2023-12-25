@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using ReactDotnetTemplate.Application.AppEvents;
 using ReactDotnetTemplate.Application.Data;
+using ReactDotnetTemplate.Application.Services.AppEvents;
 using ReactDotnetTemplate.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,10 @@ using System.Threading.Tasks;
 
 namespace ReactDotnetTemplate.Application.Todos.Commands
 {
-    public class AddTodoCommandHandler(ITodoRepository todoRepository) : IRequestHandler<AddTodoCommand, bool>
+    public class AddTodoCommandHandler(
+        ITodoRepository todoRepository,
+        IAppEventLogService appEventLogService
+        ) : IRequestHandler<AddTodoCommand, bool>
     {
         public async Task<bool> Handle(AddTodoCommand request, CancellationToken cancellationToken)
         {
@@ -20,6 +25,8 @@ namespace ReactDotnetTemplate.Application.Todos.Commands
                 Description = request.Description,
                 CreatedAt = DateTimeOffset.Now
             };
+
+            await appEventLogService.SaveEventAsync(new TodoAddedAppEvent(todo.Id));
 
             await todoRepository.AddAsync(todo);
 

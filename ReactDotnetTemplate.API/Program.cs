@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using ReactDotnetTemplate.Application.Behaviours;
 using ReactDotnetTemplate.Application.Data;
+using ReactDotnetTemplate.Application.Services.AppEvents;
 using ReactDotnetTemplate.Application.Services.Identity;
 using ReactDotnetTemplate.Infrastructure.Data;
 using ReactDotnetTemplate.Infrastructure.Services.Identity;
@@ -36,7 +37,7 @@ builder.Services.AddMediatR(cfg =>
 
 builder.Services.AddValidatorsFromAssembly(typeof(IIdentityService).Assembly);
 
-
+builder.Services.AddScoped<IAppEventLogService, AppEventLogService>();
 builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 var app = builder.Build();

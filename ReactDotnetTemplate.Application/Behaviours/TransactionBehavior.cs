@@ -32,6 +32,8 @@ public class TransactionBehavior<TRequest, TResponse>(
 
             await strategy.ExecuteAsync(async () =>
             {
+                Guid transactionId;
+
                 await using var transaction = await dbContext.BeginTransactionAsync();
 
                 logger.LogInformation("----- Begin transaction {TransactionId} for {CommandName} ({@Command})", transaction!.TransactionId, typeName, request);
@@ -41,6 +43,8 @@ public class TransactionBehavior<TRequest, TResponse>(
                 logger.LogInformation("----- Commit transaction {TransactionId} for {CommandName}", transaction.TransactionId, typeName);
 
                 await dbContext.CommitTransactionAsync(transaction);
+
+                transactionId = transaction.TransactionId;
             });
 
             return response!;

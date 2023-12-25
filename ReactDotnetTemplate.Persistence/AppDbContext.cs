@@ -8,6 +8,7 @@ namespace ReactDotnetTemplate.Persistence
     public class AppDbContext : DbContext
     {
         public DbSet<Todo> Todos { get; set; } = default!;
+        public DbSet<AppEventLog> AppEventLogs { get; set; } = default!;
 
         private IDbContextTransaction? _currentTransaction = default!;
         public IDbContextTransaction? GetCurrentTransaction() => _currentTransaction;
